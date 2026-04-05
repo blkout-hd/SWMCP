@@ -1,0 +1,28 @@
+[workspace]
+members = ["swmcp_rs"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+authors = ["SBSCRPT Corp <engineering@sbscrpt.com>"]
+license = "MIT"
+repository = "https://github.com/blkout-hd/SWMCP"
+
+[workspace.dependencies]
+pyo3 = { version = "0.28", features = ["extension-module"] }
+tokio = { version = "1.40", features = ["full"] }
+async-ssh2-tokio = "0.8"
+similar = "2.6"
+thrussh = "0.35"
+thrussh-keys = "0.24"
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+strip = true
