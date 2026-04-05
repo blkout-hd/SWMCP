@@ -1,0 +1,5 @@
+"""FastMCP server implementation."""
+
+from swmcp.server.main import create_server, main
+
+__all__ = ["create_server", "main"]
